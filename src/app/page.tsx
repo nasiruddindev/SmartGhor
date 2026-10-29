@@ -1,69 +1,86 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import React, { useState } from 'react';
+import { Navbar } from '@/components/Navbar';
+import { HeroSection } from '@/components/HeroSection';
+import { FlashDeals } from '@/components/FlashDeals';
+import { CategoryGrid } from '@/components/CategoryGrid';
+import { ProductSection } from '@/components/ProductSection';
+import { WhyChooseUs } from '@/components/WhyChooseUs';
+import { Testimonials } from '@/components/Testimonials';
+import { Newsletter } from '@/components/Newsletter';
+import { Footer } from '@/components/Footer';
+import { useShop } from '@/context/ShopContext';
+import { ShoppingBag, MessageCircle } from 'lucide-react';
+
+export default function HomePage() {
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const { totalCartItems, setIsCartOpen } = useShop();
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div className="min-h-screen flex flex-col justify-between">
+      {/* Header Navigation */}
+      <Navbar />
+
+      {/* Main Content Sections */}
+      <main className="flex-1">
+        {/* Hero Section */}
+        <HeroSection />
+
+        {/* Featured Category Tiles */}
+        <CategoryGrid
+          selectedCategory={selectedCategory}
+          onSelectCategory={setSelectedCategory}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+
+        {/* Flash Deals with Live Countdown Timer */}
+        <FlashDeals />
+
+        {/* Main Product Showcase with Filters & Sorting */}
+        <ProductSection
+          selectedCategory={selectedCategory}
+          onSelectCategory={setSelectedCategory}
+        />
+
+        {/* Trust Badges & Guarantees */}
+        <WhyChooseUs />
+
+        {/* Customer Testimonials & Reviews */}
+        <Testimonials />
+
+        {/* Newsletter Signup with Discount Voucher */}
+        <Newsletter />
       </main>
+
+      {/* Footer */}
+      <Footer />
+
+      {/* Floating Action Buttons */}
+      <div className="fixed bottom-6 left-6 z-40 flex flex-col gap-3">
+        {/* WhatsApp / Direct Support Float */}
+        <a
+          href="https://wa.me/8801800000000"
+          target="_blank"
+          rel="noreferrer"
+          className="w-12 h-12 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-200"
+          title="হোয়াটসঅ্যাপে সরাসরি মেসেজ দিন"
+        >
+          <MessageCircle className="w-6 h-6 fill-current" />
+        </a>
+      </div>
+
+      {/* Floating Cart Button for Mobile View */}
+      {totalCartItems > 0 && (
+        <div className="fixed bottom-6 right-6 z-40 sm:hidden">
+          <button
+            onClick={() => setIsCartOpen(true)}
+            className="flex items-center gap-2 px-5 py-3 bg-emerald-600 text-white rounded-full font-bold shadow-2xl hover:bg-emerald-700 transition-all animate-bounce"
+          >
+            <ShoppingBag className="w-5 h-5" />
+            <span>({totalCartItems}) দেখুন</span>
+          </button>
+        </div>
+      )}
     </div>
   );
 }
