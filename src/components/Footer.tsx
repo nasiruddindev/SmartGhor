@@ -105,9 +105,9 @@ export const Footer: React.FC = () => {
                 </span>
               </li>
               <li>
-                <Link href="/admin" className="text-emerald-400 font-semibold hover:underline flex items-center gap-1">
-                  🔒 অ্যাডমিন প্যানেল (কন্ট্রোল)
-                </Link>
+                <span className="hover:text-emerald-400 transition cursor-pointer">
+                  প্রাইভেসি ও পলিসি
+                </span>
               </li>
             </ul>
           </div>

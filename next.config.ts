@@ -21,6 +21,15 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  async redirects() {
+    return [
+      {
+        source: "/adim",
+        destination: "/admin",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
