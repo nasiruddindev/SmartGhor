@@ -7,20 +7,20 @@ import { CATEGORIES } from '@/data/products';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-slate-950 text-slate-300 pt-16 pb-8 border-t border-slate-900">
+    <footer className="bg-black text-zinc-400 pt-16 pb-8 border-t border-zinc-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800/80">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-zinc-800">
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-white shadow-md">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-black via-zinc-900 to-red-600 flex items-center justify-center text-yellow-400 shadow-md border border-zinc-800">
                 <Zap className="w-5 h-5 fill-current" />
               </div>
               <span className="text-2xl font-black tracking-tight text-white">
-                Smart<span className="text-emerald-400">Ghor</span>
+                Smart<span className="text-red-600">Ghor</span>
               </span>
             </Link>
-            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
+            <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed max-w-sm">
               SmartGhor বাংলাদেশের শীর্ষস্থানীয় প্রিমিয়াম স্মার্ট হোম ও উদ্ভাবনী ইউনিক গ্যাজেট শপ। দৈনন্দিন জীবনকে প্রযুক্তির ছোঁয়ায় সহজ ও নান্দনিক করাই আমাদের মূল লক্ষ্য।
             </p>
 
@@ -30,7 +30,7 @@ export const Footer: React.FC = () => {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-slate-900 hover:bg-emerald-600 hover:text-white text-slate-400 flex items-center justify-center transition duration-200"
+                className="w-9 h-9 rounded-full bg-zinc-900 hover:bg-red-600 hover:text-white text-zinc-400 flex items-center justify-center transition duration-200 border border-zinc-800"
                 aria-label="Facebook"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -41,7 +41,7 @@ export const Footer: React.FC = () => {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-slate-900 hover:bg-emerald-600 hover:text-white text-slate-400 flex items-center justify-center transition duration-200"
+                className="w-9 h-9 rounded-full bg-zinc-900 hover:bg-red-600 hover:text-white text-zinc-400 flex items-center justify-center transition duration-200 border border-zinc-800"
                 aria-label="Instagram"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -52,7 +52,7 @@ export const Footer: React.FC = () => {
                 href="https://youtube.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-slate-900 hover:bg-emerald-600 hover:text-white text-slate-400 flex items-center justify-center transition duration-200"
+                className="w-9 h-9 rounded-full bg-zinc-900 hover:bg-red-600 hover:text-white text-zinc-400 flex items-center justify-center transition duration-200 border border-zinc-800"
                 aria-label="YouTube"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -67,10 +67,10 @@ export const Footer: React.FC = () => {
             <h4 className="text-sm font-bold text-white uppercase tracking-wider">
               ক্যাটাগরি
             </h4>
-            <ul className="space-y-2 text-xs sm:text-sm text-slate-400">
+            <ul className="space-y-2 text-xs sm:text-sm text-zinc-400">
               {CATEGORIES.map((cat) => (
                 <li key={cat.id}>
-                  <a href={`#${cat.slug}`} className="hover:text-emerald-400 transition">
+                  <a href={`#${cat.slug}`} className="hover:text-yellow-400 transition">
                     {cat.banglaName}
                   </a>
                 </li>
@@ -83,29 +83,29 @@ export const Footer: React.FC = () => {
             <h4 className="text-sm font-bold text-white uppercase tracking-wider">
               গ্রাহক সেবা
             </h4>
-            <ul className="space-y-2 text-xs sm:text-sm text-slate-400">
+            <ul className="space-y-2 text-xs sm:text-sm text-zinc-400">
               <li>
-                <a href="#flash-deals" className="hover:text-emerald-400 transition">
-                  ফ্ল্যাশ ডিলস ও অফার
+                <a href="#flash-deals" className="hover:text-yellow-400 transition flex items-center gap-1">
+                  <span className="text-red-500">🔥</span> ফ্ল্যাশ ডিলস ও অফার
                 </a>
               </li>
               <li>
-                <span className="hover:text-emerald-400 transition cursor-pointer">
+                <span className="hover:text-yellow-400 transition cursor-pointer">
                   অর্ডার ট্র্যাকিং
                 </span>
               </li>
               <li>
-                <span className="hover:text-emerald-400 transition cursor-pointer">
+                <span className="hover:text-yellow-400 transition cursor-pointer">
                   রিটার্ন ও রিফান্ড পলিসি
                 </span>
               </li>
               <li>
-                <span className="hover:text-emerald-400 transition cursor-pointer">
+                <span className="hover:text-yellow-400 transition cursor-pointer">
                   ওয়ারেন্টি ক্লেইম গাইড
                 </span>
               </li>
               <li>
-                <span className="hover:text-emerald-400 transition cursor-pointer">
+                <span className="hover:text-yellow-400 transition cursor-pointer">
                   প্রাইভেসি ও পলিসি
                 </span>
               </li>
@@ -117,29 +117,29 @@ export const Footer: React.FC = () => {
             <h4 className="text-sm font-bold text-white uppercase tracking-wider">
               যোগাযোগ
             </h4>
-            <ul className="space-y-2.5 text-xs sm:text-sm text-slate-400">
+            <ul className="space-y-2.5 text-xs sm:text-sm text-zinc-400">
               <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-yellow-400 shrink-0 mt-0.5" />
                 <span>ধানমন্ডি ৮/এ, ঢাকা - ১২০৯, বাংলাদেশ</span>
               </li>
               <li className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
+                <Phone className="w-4 h-4 text-red-500 shrink-0" />
                 <span>+৮৮০ ১৮০০-৭৬২৭৮৪</span>
               </li>
               <li className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-emerald-400 shrink-0" />
+                <Mail className="w-4 h-4 text-yellow-400 shrink-0" />
                 <span>support@smartghor.com</span>
               </li>
             </ul>
 
             {/* Payment Methods */}
             <div className="pt-3">
-              <p className="text-[11px] font-semibold text-slate-400 mb-2">নিরাপদ পেমেন্ট মেথড:</p>
+              <p className="text-[11px] font-bold text-zinc-400 mb-2">নিরাপদ পেমেন্ট মেথড:</p>
               <div className="flex flex-wrap items-center gap-1.5">
                 {['bKash', 'Nagad', 'Rocket', 'Visa', 'Mastercard', 'COD'].map((method) => (
                   <span
                     key={method}
-                    className="px-2 py-1 rounded bg-slate-900 border border-slate-800 text-[10px] font-semibold text-slate-300"
+                    className="px-2 py-1 rounded bg-zinc-900 border border-zinc-800 text-[10px] font-semibold text-zinc-300"
                   >
                     {method}
                   </span>
@@ -150,10 +150,10 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500 gap-4">
           <p>© {new Date().getFullYear()} SmartGhor. সর্বস্বত্ব সংরক্ষিত।</p>
           <p className="flex items-center gap-1">
-            ডিজাইন ও ডেভেলপমেন্ট: <span className="text-emerald-400 font-semibold">SmartGhor Tech Team</span>
+            ডিজাইন ও ডেভেলপমেন্ট: <span className="text-yellow-400 font-bold">SmartGhor Tech Team</span>
           </p>
         </div>
       </div>

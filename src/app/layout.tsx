@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="bn" className="scroll-smooth">
-      <body className="min-h-screen flex flex-col bg-slate-50 text-slate-900 antialiased selection:bg-emerald-500 selection:text-white">
+      <body className="min-h-screen flex flex-col bg-[#FAFAFA] text-zinc-950 antialiased selection:bg-red-600 selection:text-yellow-300">
         <ShopProvider>
           {children}
           {/* Global Interactive Overlays */}

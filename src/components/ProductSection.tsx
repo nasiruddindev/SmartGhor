@@ -55,31 +55,31 @@ export const ProductSection: React.FC<ProductSectionProps> = ({
   }, [selectedCategory, sortBy]);
 
   return (
-    <section id="products-section" className="py-14 bg-slate-50/50">
+    <section id="products-section" className="py-14 bg-zinc-50/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold mb-2">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-600/10 border border-red-200 text-red-700 text-xs font-bold mb-2">
+              <Sparkles className="w-3.5 h-3.5 text-yellow-500 fill-yellow-400" />
               <span>এক্সক্লুসিভ আইটেমস</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-black text-zinc-950 tracking-tight">
               আমাদের সকল ইউনিক কালেকশন
             </h2>
-            <p className="text-xs sm:text-sm text-slate-500 mt-1">
+            <p className="text-xs sm:text-sm text-zinc-500 mt-1">
               মোট {filteredAndSortedProducts.length} টি উদ্ভাবনী প্রোডাক্ট প্রদর্শিত হচ্ছে
             </p>
           </div>
 
           {/* Sort Dropdown */}
-          <div className="flex items-center gap-2 self-start md:self-auto bg-white px-3 py-2 rounded-2xl border border-slate-200/80 shadow-xs">
-            <SlidersHorizontal className="w-4 h-4 text-slate-500" />
-            <span className="text-xs font-semibold text-slate-500">সর্ট করুন:</span>
+          <div className="flex items-center gap-2 self-start md:self-auto bg-white px-3.5 py-2 rounded-2xl border border-zinc-200 shadow-xs">
+            <SlidersHorizontal className="w-4 h-4 text-zinc-500" />
+            <span className="text-xs font-bold text-zinc-500">সর্ট করুন:</span>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as any)}
-              className="bg-transparent text-xs font-bold text-slate-800 outline-none cursor-pointer"
+              className="bg-transparent text-xs font-bold text-zinc-800 outline-none cursor-pointer"
             >
               <option value="featured">ফিচার্ড / ট্রেন্ডিং</option>
               <option value="price-low">দাম: কম থেকে বেশি</option>
@@ -90,7 +90,7 @@ export const ProductSection: React.FC<ProductSectionProps> = ({
           </div>
         </div>
 
-        {/* Category Tabs */}
+        {/* Category Tabs in Red & Black */}
         <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-6 scrollbar-none">
           {categories.map((cat) => {
             const isActive = selectedCategory === cat.value;
@@ -98,10 +98,10 @@ export const ProductSection: React.FC<ProductSectionProps> = ({
               <button
                 key={cat.value}
                 onClick={() => onSelectCategory(cat.value)}
-                className={`px-4 py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 ${
+                className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
                   isActive
-                    ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/20'
-                    : 'bg-white hover:bg-slate-100 text-slate-700 border border-slate-200/80'
+                    ? 'bg-red-600 text-white shadow-md shadow-red-600/30'
+                    : 'bg-white hover:bg-zinc-100 text-zinc-700 border border-zinc-200'
                 }`}
               >
                 {cat.label}
@@ -118,11 +118,11 @@ export const ProductSection: React.FC<ProductSectionProps> = ({
             ))}
           </div>
         ) : (
-          <div className="text-center py-16 bg-white rounded-3xl border border-dashed border-slate-200">
-            <p className="text-base font-semibold text-slate-700">এই ক্যাটাগরিতে কোনো প্রোডাক্ট পাওয়া যায়নি</p>
+          <div className="text-center py-16 bg-white rounded-3xl border border-dashed border-zinc-300">
+            <p className="text-base font-bold text-zinc-700">এই ক্যাটাগরিতে কোনো প্রোডাক্ট পাওয়া যায়নি</p>
             <button
               onClick={() => onSelectCategory('all')}
-              className="mt-3 px-4 py-2 bg-emerald-600 text-white text-xs font-bold rounded-xl"
+              className="mt-3 px-5 py-2.5 bg-red-600 text-white text-xs font-bold rounded-xl shadow-md hover:bg-red-700 transition"
             >
               সব প্রোডাক্ট দেখুন
             </button>

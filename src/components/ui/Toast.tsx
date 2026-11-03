@@ -10,15 +10,15 @@ export const Toast: React.FC = () => {
   if (!toast) return null;
 
   const icons = {
-    success: <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />,
-    error: <AlertCircle className="w-5 h-5 text-rose-600 shrink-0" />,
-    info: <Info className="w-5 h-5 text-indigo-600 shrink-0" />,
+    success: <CheckCircle2 className="w-5 h-5 text-yellow-400 shrink-0" />,
+    error: <AlertCircle className="w-5 h-5 text-red-400 shrink-0" />,
+    info: <Info className="w-5 h-5 text-yellow-400 shrink-0" />,
   };
 
   const bgStyles = {
-    success: 'bg-emerald-50 border-emerald-200/80 text-emerald-950',
-    error: 'bg-rose-50 border-rose-200/80 text-rose-950',
-    info: 'bg-indigo-50 border-indigo-200/80 text-indigo-950',
+    success: 'bg-zinc-950 border-red-600/50 text-yellow-300 shadow-2xl',
+    error: 'bg-zinc-950 border-red-600 text-red-300 shadow-2xl',
+    info: 'bg-zinc-950 border-zinc-700 text-zinc-100 shadow-2xl',
   };
 
   return (
@@ -27,7 +27,7 @@ export const Toast: React.FC = () => {
         className={`flex items-center gap-3 px-4 py-3 rounded-2xl shadow-xl border backdrop-blur-md ${bgStyles[toast.type]}`}
       >
         {icons[toast.type]}
-        <p className="text-sm font-medium">{toast.message}</p>
+        <p className="text-sm font-bold">{toast.message}</p>
       </div>
     </div>
   );

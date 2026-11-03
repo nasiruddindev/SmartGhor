@@ -314,24 +314,24 @@ export default function AdminPage() {
   // ================= SECURITY LOCK SCREEN =================
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-slate-900 flex items-center justify-center p-4">
-        <div className="w-full max-w-md bg-white rounded-3xl p-8 shadow-2xl border border-slate-100 text-center space-y-6">
-          <div className="w-16 h-16 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-md">
+      <div className="min-h-screen bg-zinc-950 flex items-center justify-center p-4">
+        <div className="w-full max-w-md bg-white rounded-3xl p-8 shadow-2xl border border-zinc-200 text-center space-y-6">
+          <div className="w-16 h-16 rounded-2xl bg-zinc-950 text-yellow-400 border border-zinc-800 flex items-center justify-center mx-auto shadow-md">
             <Lock className="w-8 h-8" />
           </div>
 
           <div>
-            <h2 className="text-2xl font-black text-slate-900 tracking-tight">
-              Smart<span className="text-emerald-600">Ghor</span> অ্যাডমিন পোর্টাল
+            <h2 className="text-2xl font-black text-zinc-950 tracking-tight">
+              Smart<span className="text-red-600">Ghor</span> অ্যাডমিন পোর্টাল
             </h2>
-            <p className="text-xs text-slate-500 mt-1">
+            <p className="text-xs text-zinc-500 mt-1">
               অনুমোদিত অ্যাক্সেসের জন্য অ্যাডমিন সিকিউরিটি পাসওয়ার্ড লিখুন
             </p>
           </div>
 
           <form onSubmit={handleLogin} className="space-y-4 text-left">
             <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1.5">
+              <label className="block text-xs font-bold text-zinc-700 mb-1.5">
                 অ্যাডমিন পাসওয়ার্ড / পিন
               </label>
               <input
@@ -340,21 +340,21 @@ export default function AdminPage() {
                 placeholder="ডিফল্ট পাসওয়ার্ড: admin123"
                 value={pinInput}
                 onChange={(e) => setPinInput(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm outline-none focus:border-emerald-500 font-mono"
+                className="w-full px-4 py-3 rounded-xl border border-zinc-200 text-sm outline-none focus:border-red-500 font-mono"
               />
-              {pinError && <p className="text-xs text-rose-500 mt-1 font-semibold">{pinError}</p>}
+              {pinError && <p className="text-xs text-red-600 mt-1 font-semibold">{pinError}</p>}
             </div>
 
             <button
               type="submit"
-              className="w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl shadow-lg transition active:scale-95"
+              className="w-full py-3.5 bg-red-600 hover:bg-red-700 text-white font-bold text-sm rounded-xl shadow-lg shadow-red-600/30 transition active:scale-95"
             >
               ড্যাশবোর্ডে প্রবেশ করুন
             </button>
           </form>
 
-          <div className="pt-2 border-t border-slate-100">
-            <Link href="/" className="text-xs text-slate-400 hover:text-emerald-600 font-medium inline-flex items-center gap-1">
+          <div className="pt-2 border-t border-zinc-100">
+            <Link href="/" className="text-xs text-zinc-400 hover:text-red-600 font-medium inline-flex items-center gap-1">
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>মূল ওয়েবসাইটে ফিরে যান</span>
             </Link>
@@ -366,30 +366,30 @@ export default function AdminPage() {
 
   // ================= MAIN ADMIN DASHBOARD =================
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
+    <div className="min-h-screen bg-zinc-50 text-zinc-950">
       {/* Top Admin Header */}
-      <header className="bg-white border-b border-slate-200 sticky top-0 z-30">
+      <header className="bg-white border-b border-zinc-200 sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <Link
               href="/"
               target="_blank"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-emerald-600 transition"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-500 hover:text-red-600 transition"
               title="নতুন ট্যাবে স্টোর দেখুন"
             >
               <ExternalLink className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">স্টোর দেখুন</span>
             </Link>
-            <div className="h-5 w-px bg-slate-200 hidden sm:block" />
+            <div className="h-5 w-px bg-zinc-200 hidden sm:block" />
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center text-white font-black text-sm shadow-xs">
+              <div className="w-8 h-8 rounded-lg bg-zinc-950 border border-zinc-800 flex items-center justify-center text-yellow-400 font-black text-sm shadow-xs">
                 <Zap className="w-4 h-4 fill-current" />
               </div>
               <div>
-                <h1 className="text-base font-black text-slate-900 leading-tight">
-                  Smart<span className="text-emerald-600">Ghor</span> অ্যাডমিন
+                <h1 className="text-base font-black text-zinc-950 leading-tight">
+                  Smart<span className="text-red-600">Ghor</span> অ্যাডমিন
                 </h1>
-                <span className="text-[10px] text-slate-400 block -mt-0.5">ম্যানেজমেন্ট কনসোল</span>
+                <span className="text-[10px] text-zinc-400 block -mt-0.5">ম্যানেজমেন্ট কনসোল</span>
               </div>
             </div>
           </div>
@@ -397,7 +397,7 @@ export default function AdminPage() {
           <div className="flex items-center gap-2.5">
             <button
               onClick={fetchData}
-              className="p-2 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-xl transition"
+              className="p-2 text-zinc-500 hover:text-zinc-800 hover:bg-zinc-100 rounded-xl transition"
               title="ডাটা রিফ্রেশ করুন"
             >
               <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
@@ -407,14 +407,14 @@ export default function AdminPage() {
                 setActiveTab('products');
                 setIsAddingProduct(true);
               }}
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl shadow-xs transition"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-red-600 hover:bg-red-700 text-white text-xs font-bold rounded-xl shadow-xs transition"
             >
-              <Plus className="w-4 h-4" />
+              <Plus className="w-4 h-4 text-yellow-300" />
               <span>নতুন প্রোডাক্ট</span>
             </button>
             <button
               onClick={handleLogout}
-              className="p-2 text-rose-500 hover:text-rose-700 hover:bg-rose-50 rounded-xl transition text-xs font-bold"
+              className="p-2 text-red-600 hover:text-red-700 hover:bg-red-50 rounded-xl transition text-xs font-bold"
               title="লগআউট"
             >
               লগআউট
@@ -428,8 +428,8 @@ export default function AdminPage() {
             onClick={() => setActiveTab('overview')}
             className={`py-3 px-4 border-b-2 transition ${
               activeTab === 'overview'
-                ? 'border-emerald-600 text-emerald-700'
-                : 'border-transparent text-slate-500 hover:text-slate-900'
+                ? 'border-red-600 text-red-600'
+                : 'border-transparent text-zinc-500 hover:text-zinc-900'
             }`}
           >
             ওভারভিউ (Dashboard)
@@ -438,12 +438,12 @@ export default function AdminPage() {
             onClick={() => setActiveTab('products')}
             className={`py-3 px-4 border-b-2 transition flex items-center gap-1.5 ${
               activeTab === 'products'
-                ? 'border-emerald-600 text-emerald-700'
-                : 'border-transparent text-slate-500 hover:text-slate-900'
+                ? 'border-red-600 text-red-600'
+                : 'border-transparent text-zinc-500 hover:text-zinc-900'
             }`}
           >
             <span>প্রোডাক্ট ক্যাটালগ</span>
-            <span className="px-1.5 py-0.2 rounded-full bg-slate-100 text-slate-700 text-[10px]">
+            <span className="px-1.5 py-0.2 rounded-full bg-zinc-100 text-zinc-700 text-[10px]">
               {products.length}
             </span>
           </button>
@@ -451,13 +451,13 @@ export default function AdminPage() {
             onClick={() => setActiveTab('orders')}
             className={`py-3 px-4 border-b-2 transition flex items-center gap-1.5 ${
               activeTab === 'orders'
-                ? 'border-emerald-600 text-emerald-700'
-                : 'border-transparent text-slate-500 hover:text-slate-900'
+                ? 'border-red-600 text-red-600'
+                : 'border-transparent text-zinc-500 hover:text-zinc-900'
             }`}
           >
             <span>কাস্টমার অর্ডারসমূহ</span>
             {pendingOrders > 0 && (
-              <span className="px-1.5 py-0.2 rounded-full bg-rose-500 text-white text-[10px] animate-pulse">
+              <span className="px-1.5 py-0.2 rounded-full bg-red-600 text-yellow-200 text-[10px] animate-pulse">
                 {pendingOrders}
               </span>
             )}
@@ -466,22 +466,22 @@ export default function AdminPage() {
             onClick={() => setActiveTab('coupons')}
             className={`py-3 px-4 border-b-2 transition flex items-center gap-1.5 ${
               activeTab === 'coupons'
-                ? 'border-emerald-600 text-emerald-700'
-                : 'border-transparent text-slate-500 hover:text-slate-900'
+                ? 'border-red-600 text-red-600'
+                : 'border-transparent text-zinc-500 hover:text-zinc-900'
             }`}
           >
-            <BadgePercent className="w-3.5 h-3.5 text-amber-600" />
+            <BadgePercent className="w-3.5 h-3.5 text-yellow-500" />
             <span>ডিসকাউন্ট ও কুপন</span>
           </button>
           <button
             onClick={() => setActiveTab('database')}
             className={`py-3 px-4 border-b-2 transition flex items-center gap-1.5 ${
               activeTab === 'database'
-                ? 'border-emerald-600 text-emerald-700'
-                : 'border-transparent text-slate-500 hover:text-slate-900'
+                ? 'border-red-600 text-red-600'
+                : 'border-transparent text-zinc-500 hover:text-zinc-900'
             }`}
           >
-            <Database className="w-3.5 h-3.5 text-indigo-600" />
+            <Database className="w-3.5 h-3.5 text-yellow-500" />
             <span>Supabase ক্লাউড ডাটাবেস</span>
           </button>
         </div>

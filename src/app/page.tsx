@@ -74,9 +74,9 @@ export default function HomePage() {
         <div className="fixed bottom-6 right-6 z-40 sm:hidden">
           <button
             onClick={() => setIsCartOpen(true)}
-            className="flex items-center gap-2 px-5 py-3 bg-emerald-600 text-white rounded-full font-bold shadow-2xl hover:bg-emerald-700 transition-all animate-bounce"
+            className="flex items-center gap-2 px-5 py-3 bg-red-600 text-yellow-300 rounded-full font-black shadow-2xl border border-red-500 hover:bg-red-700 transition-all animate-bounce"
           >
-            <ShoppingBag className="w-5 h-5" />
+            <ShoppingBag className="w-5 h-5 text-yellow-300" />
             <span>({totalCartItems}) দেখুন</span>
           </button>
         </div>

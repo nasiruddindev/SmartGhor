@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useShop } from '@/context/ShopContext';
 import { PRODUCTS } from '@/data/products';
-import { Search, X, TrendingUp, ShoppingBag, ArrowRight } from 'lucide-react';
+import { Search, X, TrendingUp, ShoppingBag } from 'lucide-react';
 
 export const SearchModal: React.FC = () => {
   const { isSearchOpen, setIsSearchOpen, openQuickView, addToCart } = useShop();
@@ -65,49 +65,49 @@ export const SearchModal: React.FC = () => {
       {/* Backdrop */}
       <div
         onClick={() => setIsSearchOpen(false)}
-        className="fixed inset-0 bg-slate-900/50 backdrop-blur-xs transition-opacity"
+        className="fixed inset-0 bg-black/60 backdrop-blur-xs transition-opacity"
       />
 
       {/* Search Container */}
-      <div className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl overflow-hidden z-10 animate-in fade-in zoom-in-95 duration-200">
+      <div className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl overflow-hidden z-10 animate-in fade-in zoom-in-95 duration-200 border border-zinc-200">
         {/* Search Input Bar */}
-        <div className="p-4 sm:p-5 border-b border-slate-100 flex items-center gap-3">
-          <Search className="w-5 h-5 text-emerald-600 shrink-0" />
+        <div className="p-4 sm:p-5 border-b border-zinc-200 flex items-center gap-3">
+          <Search className="w-5 h-5 text-red-600 shrink-0" />
           <input
             ref={inputRef}
             type="text"
             placeholder="ইউনিক গ্যাজেট, নাম বা ক্যাটাগরি লিখুন..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full text-base sm:text-lg font-medium text-slate-900 placeholder-slate-400 outline-none"
+            className="w-full text-base sm:text-lg font-bold text-zinc-950 placeholder-zinc-400 outline-none"
           />
           {searchTerm && (
             <button
               onClick={() => setSearchTerm('')}
-              className="p-1 text-slate-400 hover:text-slate-600 rounded-lg text-xs"
+              className="p-1 text-zinc-400 hover:text-red-600 rounded-lg text-xs font-bold"
             >
               ক্লিয়ার
             </button>
           )}
           <button
             onClick={() => setIsSearchOpen(false)}
-            className="p-2 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-full transition shrink-0"
+            className="p-2 text-zinc-400 hover:text-zinc-700 hover:bg-zinc-100 rounded-full transition shrink-0"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Popular Tags */}
-        <div className="px-5 py-3 bg-slate-50 border-b border-slate-100 flex items-center gap-2 overflow-x-auto scrollbar-none text-xs">
-          <div className="flex items-center gap-1 text-slate-500 font-semibold shrink-0">
-            <TrendingUp className="w-3.5 h-3.5 text-emerald-600" />
+        <div className="px-5 py-3 bg-zinc-50 border-b border-zinc-200 flex items-center gap-2 overflow-x-auto scrollbar-none text-xs">
+          <div className="flex items-center gap-1 text-zinc-700 font-bold shrink-0">
+            <TrendingUp className="w-3.5 h-3.5 text-red-600" />
             <span>জনপ্রিয়:</span>
           </div>
           {popularTags.map((tag) => (
             <button
               key={tag}
               onClick={() => setSearchTerm(tag)}
-              className="px-2.5 py-1 rounded-full bg-white hover:bg-emerald-50 hover:text-emerald-700 text-slate-600 border border-slate-200/80 shrink-0 transition"
+              className="px-2.5 py-1 rounded-full bg-white hover:bg-red-50 hover:text-red-600 text-zinc-700 border border-zinc-200 shrink-0 transition font-medium"
             >
               {tag}
             </button>
@@ -121,7 +121,7 @@ export const SearchModal: React.FC = () => {
               searchResults.map((product) => (
                 <div
                   key={product.id}
-                  className="flex items-center justify-between p-3 rounded-2xl hover:bg-slate-50 transition border border-transparent hover:border-slate-100 group"
+                  className="flex items-center justify-between p-3 rounded-2xl hover:bg-zinc-50 transition border border-transparent hover:border-zinc-200 group"
                 >
                   <div
                     onClick={() => {
@@ -130,7 +130,7 @@ export const SearchModal: React.FC = () => {
                     }}
                     className="flex items-center gap-3.5 flex-1 cursor-pointer min-w-0"
                   >
-                    <div className="relative w-14 h-14 rounded-xl overflow-hidden bg-slate-100 shrink-0">
+                    <div className="relative w-14 h-14 rounded-xl overflow-hidden bg-zinc-100 shrink-0 border border-zinc-200">
                       <Image
                         src={product.images[0]}
                         alt={product.name}
@@ -139,15 +139,15 @@ export const SearchModal: React.FC = () => {
                       />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h4 className="text-sm font-bold text-slate-900 group-hover:text-emerald-700 transition truncate">
+                      <h4 className="text-sm font-bold text-zinc-950 group-hover:text-red-600 transition truncate">
                         {product.name}
                       </h4>
                       <div className="flex items-center gap-2 text-xs">
-                        <span className="font-extrabold text-slate-800">
+                        <span className="font-black text-zinc-900">
                           ৳{product.price.toLocaleString('en-US')}
                         </span>
                         {product.discountPercentage > 0 && (
-                          <span className="text-[10px] bg-emerald-100 text-emerald-800 px-1.5 py-0.2 rounded font-semibold">
+                          <span className="text-[10px] bg-red-600 text-yellow-200 px-1.5 py-0.2 rounded font-bold">
                             {product.discountPercentage}% ছাড়
                           </span>
                         )}
@@ -161,7 +161,7 @@ export const SearchModal: React.FC = () => {
                         addToCart(product);
                         setIsSearchOpen(false);
                       }}
-                      className="p-2 bg-emerald-50 hover:bg-emerald-600 text-emerald-700 hover:text-white rounded-xl transition"
+                      className="p-2 bg-zinc-950 hover:bg-red-600 text-yellow-400 hover:text-white rounded-xl transition shadow-xs"
                       title="কার্টে যুক্ত করুন"
                     >
                       <ShoppingBag className="w-4 h-4" />
@@ -170,13 +170,13 @@ export const SearchModal: React.FC = () => {
                 </div>
               ))
             ) : (
-              <div className="py-12 text-center text-slate-500">
-                <p className="text-sm font-semibold">"{searchTerm}" দিয়ে কোনো প্রোডাক্ট খুঁজে পাওয়া যায়নি</p>
-                <p className="text-xs text-slate-400 mt-1">ভিন্ন শব্দ লিখে আবার চেষ্টা করুন</p>
+              <div className="py-12 text-center text-zinc-500">
+                <p className="text-sm font-bold text-zinc-800">"{searchTerm}" দিয়ে কোনো প্রোডাক্ট খুঁজে পাওয়া যায়নি</p>
+                <p className="text-xs text-zinc-400 mt-1">ভিন্ন শব্দ লিখে আবার চেষ্টা করুন</p>
               </div>
             )
           ) : (
-            <div className="py-8 text-center text-slate-400 text-xs">
+            <div className="py-8 text-center text-zinc-400 text-xs">
               সার্চ করতে প্রোডাক্টের নাম টাইপ করুন অথবা উপরের যেকোনো ট্যাগ ক্লিক করুন
             </div>
           )}
